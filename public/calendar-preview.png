@@ -1,0 +1,57 @@
+&lt;!-- This is an SVG file as a placeholder for a real PNG image --&gt;
+&lt;svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400"&gt;
+  &lt;rect width="100%" height="100%" fill="#f0f9ff" /&gt;
+  &lt;rect x="10" y="10" width="580" height="380" rx="8" fill="#e0f2fe" stroke="#3b82f6" stroke-width="2" /&gt;
+  
+  &lt;!-- Calendar Header --&gt;
+  &lt;rect x="30" y="30" width="540" height="40" fill="#bfdbfe" /&gt;
+  &lt;text x="300" y="55" font-family="Arial" font-size="16" text-anchor="middle" fill="#1e40af"&gt;July 2024&lt;/text&gt;
+  
+  &lt;!-- Calendar Grid --&gt;
+  &lt;g fill="#dbeafe" stroke="#3b82f6" stroke-width="1"&gt;
+    &lt;!-- Week 1 --&gt;
+    &lt;rect x="30" y="80" width="77" height="60" /&gt;
+    &lt;rect x="107" y="80" width="77" height="60" /&gt;
+    &lt;rect x="184" y="80" width="77" height="60" /&gt;
+    &lt;rect x="261" y="80" width="77" height="60" /&gt;
+    &lt;rect x="338" y="80" width="77" height="60" /&gt;
+    &lt;rect x="415" y="80" width="77" height="60" /&gt;
+    &lt;rect x="492" y="80" width="77" height="60" /&gt;
+    
+    &lt;!-- Week 2 --&gt;
+    &lt;rect x="30" y="140" width="77" height="60" /&gt;
+    &lt;rect x="107" y="140" width="77" height="60" /&gt;
+    &lt;rect x="184" y="140" width="77" height="60" /&gt;
+    &lt;rect x="261" y="140" width="77" height="60" fill="#3b82f6" /&gt;
+    &lt;rect x="338" y="140" width="77" height="60" fill="#3b82f6" /&gt;
+    &lt;rect x="415" y="140" width="77" height="60" /&gt;
+    &lt;rect x="492" y="140" width="77" height="60" /&gt;
+    
+    &lt;!-- Week 3 --&gt;
+    &lt;rect x="30" y="200" width="77" height="60" /&gt;
+    &lt;rect x="107" y="200" width="77" height="60" /&gt;
+    &lt;rect x="184" y="200" width="77" height="60" fill="#3b82f6" /&gt;
+    &lt;rect x="261" y="200" width="77" height="60" /&gt;
+    &lt;rect x="338" y="200" width="77" height="60" /&gt;
+    &lt;rect x="415" y="200" width="77" height="60" fill="#3b82f6" /&gt;
+    &lt;rect x="492" y="200" width="77" height="60" /&gt;
+    
+    &lt;!-- Week 4 --&gt;
+    &lt;rect x="30" y="260" width="77" height="60" /&gt;
+    &lt;rect x="107" y="260" width="77" height="60" fill="#3b82f6" /&gt;
+    &lt;rect x="184" y="260" width="77" height="60" /&gt;
+    &lt;rect x="261" y="260" width="77" height="60" /&gt;
+    &lt;rect x="338" y="260" width="77" height="60" fill="#3b82f6" /&gt;
+    &lt;rect x="415" y="260" width="77" height="60" /&gt;
+    &lt;rect x="492" y="260" width="77" height="60" /&gt;
+    
+    &lt;!-- Week 5 --&gt;
+    &lt;rect x="30" y="320" width="77" height="60" /&gt;
+    &lt;rect x="107" y="320" width="77" height="60" /&gt;
+    &lt;rect x="184" y="320" width="77" height="60" /&gt;
+    &lt;rect x="261" y="320" width="77" height="60" fill="#3b82f6" /&gt;
+    &lt;rect x="338" y="320" width="77" height="60" /&gt;
+    &lt;rect x="415" y="320" width="77" height="60" /&gt;
+    &lt;rect x="492" y="320" width="77" height="60" /&gt;
+  &lt;/g&gt;
+&lt;/svg&gt; 

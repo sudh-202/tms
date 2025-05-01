@@ -1,0 +1,5 @@
+This folder contains notification icons:
+- icon-192x192.png: Main icon for notifications
+- badge-72x72.png: Badge icon for notifications
+
+These files need to be created and placed in this folder. 

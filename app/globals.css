@@ -1,26 +1,110 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 248, 250, 252;
+  --background-end-rgb: 241, 245, 249;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 17, 24, 39;
+    --background-end-rgb: 31, 41, 55;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+/* Improve touch experience */
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+    background-color: transparent;
+  }
+  
+  .dark input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+  }
+}
+
+/* Custom scrollbar for better UI */
+@layer components {
+  .touch-manipulation {
+    touch-action: manipulation;
+  }
+  
+  /* Custom scrollbars for better UI */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: rgba(156, 163, 175, 0.5);
+    border-radius: 3px;
+  }
+  
+  .dark .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: rgba(75, 85, 99, 0.5);
+  }
+  
+  /* Customizing drag handle to make it more visible */
+  .drag-handle {
+    cursor: grab;
+    border-radius: 9999px;
+    padding: 0.25rem;
+    transition-property: color, background-color, border-color;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+    touch-action: none;
+  }
+  
+  .drag-handle:active {
+    cursor: grabbing;
+  }
+  
+  .dark .drag-handle {
+    color: rgba(156, 163, 175, 1);
+  }
+  
+  .dark .drag-handle:hover {
+    color: rgba(209, 213, 219, 1);
+    background-color: rgba(55, 65, 81, 1);
+  }
+}
+
+/* Animations for drag and drop */
+@layer utilities {
+  .drag-item {
+    touch-action: manipulation;
+    transition-property: transform;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+  }
+  
+  .drag-item:active {
+    transform: scale(0.98);
+  }
 }
