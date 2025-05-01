@@ -144,7 +144,7 @@ export function showNotification(title: string, message: string, type: 'success'
         window.focus();
         notification.close();
       };
-    } catch (err) {
+    } catch (_err) {
       // Fall back to toast
       showFallbackNotification(title, message, type);
     }

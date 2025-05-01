@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { TaskStatus as PrismaTaskStatus } from '@prisma/client';
 
 // Define TaskStatus as an enum for consistent usage
 export enum TaskStatus {

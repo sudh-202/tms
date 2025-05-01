@@ -3,11 +3,12 @@
 import { useState, useEffect } from 'react';
 import { format, addMonths, subMonths, startOfMonth, endOfMonth, eachDayOfInterval, isSameDay, getDay } from 'date-fns';
 import { Task, TaskStatus } from '@/app/types/task';
-import { ArrowLeftIcon, ArrowRightIcon, ChevronLeft, ChevronRight, CalendarIcon, ClockIcon, CheckCircle, User, Users, PlusIcon, PencilIcon, MoreVertical } from 'lucide-react';
+import { ArrowLeftIcon, ArrowRightIcon, ChevronLeft, ChevronRight, CalendarIcon, ClockIcon, CheckCircle, User, Users, PlusIcon, PencilIcon, MoreVertical, Calendar, ClipboardList } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { TaskForm } from './TaskForm';
 import { ProjectForm } from './ProjectForm';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 interface Project {
   id: string;
@@ -656,7 +657,7 @@ export function HomeDashboard({ tasks: initialTasks, userName }: HomeDashboardPr
           <div className="divide-y divide-gray-100 dark:divide-gray-700">
             {tasks.length === 0 ? (
               <div className="p-4 text-center text-gray-500 dark:text-gray-400">
-                No tasks yet. Click "Add Task" to create your first task.
+                No tasks yet. Click &quot;Add Task&quot; to create your first task.
               </div>
             ) : (
               tasks.slice(0, 3).map(task => (
@@ -766,8 +767,22 @@ export function HomeDashboard({ tasks: initialTasks, userName }: HomeDashboardPr
                 </div>
               </div>
             ) : projects.length === 0 ? (
-              <div className="p-4 text-center text-gray-500 dark:text-gray-400">
-                No projects yet. Click "Add Project" to create your first project.
+              <div className="bg-white dark:bg-gray-800 rounded-lg p-5 text-center mb-4">
+                <Calendar className="mx-auto h-10 w-10 text-blue-500 mb-3" />
+                <h3 className="text-lg font-medium text-gray-900 dark:text-gray-100 mb-1">No projects yet</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
+                  Create your first project to organize your tasks better
+                </p>
+                <button
+                  onClick={() => {
+                    setActiveProject(null);
+                    setIsProjectFormOpen(true);
+                  }}
+                  className="inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700"
+                >
+                  <PlusIcon className="w-4 h-4 mr-1" />
+                  Create a project
+                </button>
               </div>
             ) : (
               projects.map((project) => (

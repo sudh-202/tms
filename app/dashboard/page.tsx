@@ -398,7 +398,7 @@ export default function DashboardPage() {
       {/* Search results message */}
       {searchQuery && (
         <div className="container mx-auto px-4 py-4 mb-4 text-sm text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-800 rounded-lg">
-          Showing results for "{searchQuery}" ({filteredTasks.length} {filteredTasks.length === 1 ? 'task' : 'tasks'} found)
+          Showing results for &quot;{searchQuery}&quot; ({filteredTasks.length} {filteredTasks.length === 1 ? 'task' : 'tasks'} found)
           <button 
             onClick={() => setSearchQuery('')}
             className="ml-2 text-blue-500 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300"

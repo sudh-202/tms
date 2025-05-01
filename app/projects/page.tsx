@@ -2,10 +2,11 @@
 
 import { useState, useEffect } from 'react';
 import { useUser } from '@clerk/nextjs';
-import { Search, MoreHorizontal, Plus, Calendar, Users, CheckCircle, Clock, Folder, FolderOpen } from 'lucide-react';
+import { Search, MoreHorizontal, Plus, Calendar, CheckCircle, Clock, Folder, FolderOpen } from 'lucide-react';
 import { format, isFuture, differenceInDays } from 'date-fns';
 import { useRouter } from 'next/navigation';
 import { ChatBot } from '../components/ChatBot';
+import Image from 'next/image';
 
 interface Project {
   id: string;
@@ -261,7 +262,7 @@ export default function ProjectsPage() {
       {/* Search results message */}
       {searchQuery && (
         <div className="py-3 px-4 mb-6 text-sm text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-800 rounded-lg">
-          Showing results for "{searchQuery}" ({filteredProjects.length} {filteredProjects.length === 1 ? 'project' : 'projects'} found)
+          Showing results for &quot;{searchQuery}&quot; ({filteredProjects.length} {filteredProjects.length === 1 ? 'project' : 'projects'} found)
           <button 
             onClick={() => setSearchQuery('')}
             className="ml-2 text-blue-500 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300"
@@ -304,13 +305,16 @@ export default function ProjectsPage() {
                     {project.members.slice(0, 3).map(member => (
                       <div key={member.id} className="w-8 h-8 rounded-full border-2 border-white dark:border-gray-800 bg-gray-200 dark:bg-gray-700 overflow-hidden flex items-center justify-center text-xs font-medium text-gray-600 dark:text-gray-300">
                         {member.avatar ? (
-                          <img 
+                          <Image 
                             src={member.avatar} 
                             alt={member.name} 
+                            width={32}
+                            height={32}
                             className="w-full h-full object-cover"
                             onError={(e) => {
-                              e.currentTarget.onerror = null;
-                              e.currentTarget.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&background=random`;
+                              const target = e.target as HTMLImageElement;
+                              target.onerror = null;
+                              target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&background=random`;
                             }} 
                           />
                         ) : (
