@@ -10,6 +10,13 @@ const nextConfig = {
     // your project has TypeScript errors.
     ignoreBuildErrors: true,
   },
+  // Skip the build error in the Prisma API
+  webpack: (config, { isServer }) => {
+    if (isServer) {
+      config.externals = [...config.externals, '@prisma/client', 'prisma'];
+    }
+    return config;
+  },
 }
 
 module.exports = nextConfig 
